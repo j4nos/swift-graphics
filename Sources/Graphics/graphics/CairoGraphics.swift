@@ -5,6 +5,11 @@ public class CairoGraphics: Graphics {
     private let context: Cairo.Context
     private let image: Image // only kept for marking as non-flushed
 
+    public func setFont(family: String, slant: FontSlant, weight: FontWeight, size: Double) {
+        context.setFont(face: (family: family, slant: slant, weight: weight))
+        context.setFont(size: size)
+    }
+    
     deinit {
         flush()
     }
